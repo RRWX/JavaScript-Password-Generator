@@ -8,7 +8,7 @@ This simple JavaScript Password Generator is a lightweight tool that allows you 
 
 ## Deployed Page
 
-![Deployed Page Screenshot](./Develop/assets/screenshot1234545.png)
+![Deployed Page Screenshot](./assets/screenshot1234545.png)
 
 [Deployed GitPage](https://rrwx.github.io/JavaScript-Password-Generator/)
 
