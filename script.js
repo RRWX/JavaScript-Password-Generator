@@ -7,51 +7,53 @@ function generatePassword() {
   var possibleCharacters = "";
 
   // get input and validate
-  numberOfCharacters = prompt("How many characters do you want in your password? Choose between 8-128 characters.");
+  numberOfCharacters = prompt("How Long do you want in your password To be? Please choose between 8-128 characters.");
   
   while(numberOfCharacters < 8 || numberOfCharacters > 128){
-    numberOfCharacters = prompt("Please choose a valid number of characters.");
+    numberOfCharacters = prompt("Please choose between 8-128 characters.");
   }
 
   while(isNaN(numberOfCharacters)){
-    numberOfCharacters = prompt("Please enter a valid number.");
+    numberOfCharacters = prompt("Please enter a number.");
   }
 
-  hasLowercase = confirm("Do you want lowercase characters?");
+ var hasLowercase = confirm("Do you want lowercase letters?");
   
 
-  hasUppercase = confirm("Do you want uppercase characters?");
+ var hasUppercase = confirm("Do you want uppercase letters?");
  
 
-  hasNumbers = confirm("Do you want to use numbers?");
+ var hasNumbers = confirm("Do you want to use numbers?");
  
 
-  hasSpecial = confirm("Do you want special characters?");
+ var hasSpecial = confirm("Do you want special characters?");
 
 
-  if (hasLowercase === false && hasUppercase === false && hasNumbers === false && hasSpecial === false) {
+  while(hasLowercase === false && hasUppercase === false && hasNumbers === false && hasSpecial === false) {
     alert("Please select at least one character type.");
+  hasLowercase = confirm("Do you want lowercase letters?");
+  hasUppercase = confirm("Do you want uppercase letters?");
+  hasNumbers = confirm("Do you want to use numbers?");
+  hasSpecial = confirm("Do you want special characters?");
   };
 
-  // group selected characters
+  
   if (hasLowercase) {
-    possibleCharacters = possibleCharacters+(letters.toLowerCase());
+    possibleCharacters +=(letters.toLowerCase());
   }
   if (hasUppercase) {
-    possibleCharacters = possibleCharacters+letters;
+    possibleCharacters += letters;
   }
   if (hasNumbers) {
-    possibleCharacters = possibleCharacters+numbers;
+    possibleCharacters += numbers;
   }
   if (hasSpecial) {
-    possibleCharacters = possibleCharacters+specialCharacters;
+    possibleCharacters +=specialCharacters;
   }
 
-  // pick random cards out of new pool for length of password
-  let finalPassword = ""
+  let finalPassword = "";
   for (let i = 0; i < numberOfCharacters; i++) {
     let rng =Math.floor(Math.random() * possibleCharacters.length);
-    // or finalPassword += possibleCharacters[rng];
     finalPassword = finalPassword + possibleCharacters.substring(rng, rng+1);
   }
   return finalPassword;
